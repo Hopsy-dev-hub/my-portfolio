@@ -65,12 +65,15 @@
         }
 
         .social-link {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--text-main);
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
         }
-        .social-link:hover { color: var(--accent-blue); }
+        .social-link:hover { 
+            color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
 
         .badge { font-weight: 500; padding: 0.5em 0.8em; }
         footer { font-size: 0.9rem; opacity: 0.7; }
@@ -143,11 +146,15 @@
 </section>
 
 <footer class="text-center py-5 border-top border-secondary mt-5">
-    <div class="mb-4">
-        <a href="https://github.com/Hopsy-dev-hub" target="_blank" class="social-link mx-3"><i class="bi bi-github"></i></a>
-        <a href="#" target="_blank" class="social-link mx-3"><i class="bi bi-linkedin"></i></a>
+    <div class="mb-4 d-flex justify-content-center gap-4">
+        <a href="https://github.com/Hopsy-dev-hub" target="_blank" class="social-link" title="GitHub Profile">
+            <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/hopeherrins-irmani-11a7b8401" target="_blank" class="social-link" title="LinkedIn Profile">
+            <i class="bi bi-linkedin"></i>
+        </a>
     </div>
-    <p>&copy; 2026 Wagwan Hopsy | Engineered with Purpose</p>
+    <p>&copy; 2026 Dev Hopsy | Engineered with Purpose</p>
 </footer>
 
 </body>
