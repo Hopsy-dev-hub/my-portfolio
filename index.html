@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wagwan Hopsy | Software Architect</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         :root {
             --bg-dark: #0f111a;
@@ -53,6 +54,24 @@
             font-weight: 800;
         }
 
+        .form-control {
+            background-color: #0d1117 !important;
+            border: 1px solid var(--border-color);
+            color: var(--text-main) !important;
+        }
+        .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(88, 166, 255, 0.25);
+        }
+
+        .social-link {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .social-link:hover { color: var(--accent-blue); }
+
         .badge { font-weight: 500; padding: 0.5em 0.8em; }
         footer { font-size: 0.9rem; opacity: 0.7; }
     </style>
@@ -74,7 +93,7 @@
     <div class="row g-4">
         <div class="col-md-6">
             <div class="project-card p-4 h-100">
-                <h3 class="h4 mb-3">KASKAZINI HR System</h3>
+                <h3 class="h4 mb-3 text-info">KASKAZINI HR System</h3>
                 <p class="text-muted mb-4">Enterprise workforce solution built with Django 5.0. Features secure multi-role authentication and automated encrypted payslips via Gmail API.</p>
                 <div class="d-flex flex-wrap gap-2">
                     <span class="badge bg-dark border border-secondary text-info">Python 3.14</span>
@@ -85,7 +104,7 @@
 
         <div class="col-md-6">
             <div class="project-card p-4 h-100">
-                <h3 class="h4 mb-3">His-Hart Apparel V2</h3>
+                <h3 class="h4 mb-3 text-info">His-Hart Apparel V2</h3>
                 <p class="text-muted mb-4">Next-generation e-commerce platform. Jumia-inspired architecture focusing on seamless mobile-first commerce and optimized checkout logic.</p>
                 <div class="d-flex flex-wrap gap-2">
                     <span class="badge bg-dark border border-secondary text-warning">UI/UX Design</span>
@@ -96,7 +115,38 @@
     </div>
 </main>
 
+<section class="container my-5 py-5" id="contact">
+    <div class="project-card p-5 mx-auto" style="max-width: 800px;">
+        <h2 class="text-center mb-4 fw-bold">Let's Connect</h2>
+        <p class="text-center text-muted mb-5">Have a project in mind or want to talk about Django architecture? Drop a message.</p>
+        
+        <form name="contact" method="POST" data-netlify="true">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold text-info">YOUR NAME</label>
+                    <input type="text" name="name" class="form-control py-2" placeholder="Enter your name" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold text-info">YOUR EMAIL</label>
+                    <input type="email" name="email" class="form-control py-2" placeholder="name@email.com" required>
+                </div>
+                <div class="col-12 mt-4">
+                    <label class="form-label small fw-bold text-info">MESSAGE</label>
+                    <textarea name="message" rows="4" class="form-control" placeholder="Describe your project requirements..." required></textarea>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-outline-info px-5 py-2 fw-bold">SEND MESSAGE</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
 <footer class="text-center py-5 border-top border-secondary mt-5">
+    <div class="mb-4">
+        <a href="https://github.com/Hopsy-dev-hub" target="_blank" class="social-link mx-3"><i class="bi bi-github"></i></a>
+        <a href="#" target="_blank" class="social-link mx-3"><i class="bi bi-linkedin"></i></a>
+    </div>
     <p>&copy; 2026 Wagwan Hopsy | Engineered with Purpose</p>
 </footer>
 
