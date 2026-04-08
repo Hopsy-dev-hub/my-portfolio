@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hopsy.Dev | Software Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>Hopsy.Dev | Architect & Founder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -22,19 +22,19 @@
             color: var(--text-pure); 
             font-family: 'Inter', sans-serif;
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.5;
             overflow-x: hidden;
         }
 
-        /* --- THE CINEMATIC HERO --- */
+        /* --- HERO --- */
         .cinematic-hero {
             position: relative;
             width: 100%;
-            height: 85vh; 
-            background-color: var(--bg-pure);
+            height: 80vh; 
             display: flex;
             align-items: flex-end;
             overflow: hidden;
+            background: #000;
         }
 
         .hero-background-image {
@@ -46,8 +46,7 @@
             background-image: url('assets/images/Headshot.jpg');
             background-size: cover;
             background-position: center 20%;
-            filter: grayscale(100%) contrast(110%);
-            opacity: 0.6; /* Slightly darker to make the text pop more */
+            filter: grayscale(100%) brightness(60%);
             z-index: 1;
         }
 
@@ -59,126 +58,96 @@
         }
 
         .brutalist-name {
-            font-size: clamp(4rem, 10vw, 9rem);
-            font-weight: 500; /* Thinner font weight to match the Alex Graham reference */
+            font-size: clamp(3.5rem, 10vw, 8.5rem);
+            font-weight: 500;
             margin: 0;
             line-height: 0.85;
             letter-spacing: -4px;
         }
 
-        .brutalist-title {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            margin-top: 15px;
-            color: #ffffff; /* Changed to white to match the reference's sleekness */
-            display: block;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-
-        /* --- CONTENT COMPOSITION --- */
+        /* --- CONTENT FLOW --- */
         .content-section {
             padding: 80px 60px; 
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section-label {
-            font-size: 0.8rem;
-            color: var(--accent-sharp); /* Kept cyan for the tech feel */
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            display: block;
-            font-weight: 700;
-        }
-
         .bold-statement {
-            font-size: clamp(1.5rem, 3vw, 2.5rem); 
-            font-weight: 500; /* Thinner for a more refined look */
-            margin-bottom: 70px; 
-            line-height: 1.2;
-            letter-spacing: -1px;
+            font-size: clamp(1.4rem, 2.8vw, 2.2rem); 
+            font-weight: 400;
+            margin-bottom: 40px; 
+            line-height: 1.3;
+            color: #ccc;
         }
 
-        .bold-statement span { color: var(--accent-sharp); font-weight: 700; }
+        .bold-statement span { color: #fff; font-weight: 700; border-bottom: 2px solid var(--accent-sharp); }
 
-        /* --- BRUTALIST PROJECT LISTING --- */
+        .section-label {
+            font-size: 0.75rem;
+            color: var(--accent-sharp);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 900;
+        }
+
+        /* --- THE CASE STUDY BUTTONS (Interactive) --- */
+        .project-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
         .project-item {
             border-top: 1px solid var(--border-color);
-            padding: 40px 0; 
+            padding: 60px 0; 
             display: grid;
-            grid-template-columns: 80px 1fr 200px; 
+            grid-template-columns: 80px 1fr auto; 
             gap: 30px;
-            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
-        .project-item:hover { background-color: #0a0a0a; }
+        .project-item:hover { background: linear-gradient(90deg, #0a0a0a 0%, #000 100%); }
+        .project-item:hover .project-info h3 { color: var(--accent-sharp); }
+        .project-item:hover .bi-arrow-up-right { transform: translate(5px, -5px); color: var(--accent-sharp); }
 
-        .project-num {
-            font-size: 2.5rem; 
-            font-weight: 400; /* Refined to match reference */
-            color: #444;
-            line-height: 1.1;
-            font-style: italic;
-        }
-        .project-item:hover .project-num { color: var(--text-pure); }
+        .project-num { font-size: 2rem; font-weight: 300; color: #444; font-style: italic; }
+        .project-info h3 { font-size: 2rem; font-weight: 700; margin-bottom: 15px; transition: 0.3s; }
+        .project-info p { color: #8b949e; font-size: 1.1rem; max-width: 700px; }
 
-        .project-info h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 12px; letter-spacing: -1px; }
-        .project-info p { color: #8b949e; font-size: 1.05rem; max-width: 600px; }
+        .bi-arrow-up-right { font-size: 2rem; color: #333; transition: 0.3s; }
 
-        .badge-container { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
-        .badge-custom {
-            border: 1px solid var(--border-color);
+        /* --- TECH CAPABILITIES CHIPS --- */
+        .tech-pill {
+            display: inline-block;
+            padding: 6px 15px;
+            border: 1px solid #30363d;
+            border-radius: 50px;
+            font-size: 0.8rem;
             color: #8b949e;
-            padding: 5px 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
+            margin: 0 8px 10px 0;
+            background: #0d1117;
         }
 
-        /* --- CONTACT INTEGRATION --- */
-        .contact-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 50px; 
+        /* --- CEO / APPAREL SECTION --- */
+        .ceo-section {
+            background: #111;
+            padding: 80px 60px;
+            margin-top: 50px;
+            border-left: 4px solid var(--accent-sharp);
         }
 
-        .form-control {
-            background: #000 !important;
-            border: 1px solid var(--border-color);
-            color: #fff !important;
-            border-radius: 0;
-            padding: 15px;
-        }
-        .form-control:focus { border-color: var(--accent-sharp); box-shadow: none; }
-
-        .btn-submit {
-            background: transparent;
-            border: 1px solid var(--text-pure);
-            color: var(--text-pure);
-            padding: 15px 40px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        .btn-submit:hover { background: var(--text-pure); color: #000; }
-
-        footer { opacity: 0.5; font-size: 0.8rem; letter-spacing: 1px; }
-
-        /* --- MOBILE VIEW (ALEX GRAHAM STYLE) --- */
+        /* --- MOBILE RECTIFICATIONS --- */
         @media (max-width: 768px) {
-            .cinematic-hero { 
-                height: 70vh; 
-                align-items: center; /* Centers text over the image on mobile */
-            } 
+            .cinematic-hero { height: 60vh; align-items: center; }
             .hero-text-overlay { padding: 30px; text-align: center; }
-            .brutalist-name { font-size: 4.5rem; word-break: break-word; line-height: 0.9; }
-            .brutalist-title { font-size: 1.1rem; }
-            
-            .project-item { grid-template-columns: 1fr; gap: 15px; padding: 30px 0; }
-            .project-num { font-size: 4rem; margin-bottom: 10px; }
-            .content-section { padding: 60px 30px; }
+            .content-section { padding: 60px 25px; }
+            .project-item { grid-template-columns: 1fr; padding: 40px 0; }
+            .project-num { display: none; }
+            .bi-arrow-up-right { display: none; }
+            .ceo-section { padding: 40px 25px; }
         }
     </style>
 </head>
@@ -188,57 +157,56 @@
     <div class="hero-background-image"></div>
     <div class="hero-text-overlay">
         <h1 class="brutalist-name">Hopsy.Dev</h1>
-        <span class="brutalist-title">// Web Designer Art Director</span>
+        <div class="mt-3">
+            <span class="tech-pill">Software Architect</span>
+            <span class="tech-pill">AI Strategist</span>
+            <span class="tech-pill">CEO: His-Hart</span>
+        </div>
     </div>
 </header>
 
 <main class="content-section">
     <p class="bold-statement">
-        I'm a versatile architect who partners with founders to turn raw data into <span>real products</span>. I focus on clear interfaces, sharp decisions, and fast execution.
+        I engineer <span>robust technical ecosystems</span> by merging advanced Django architecture with <span>AI-driven automation</span>. Beyond the code, I lead as the CEO of His-Hart Apparel, bridging the gap between high-end engineering and commercial scale.
     </p>
 
-    <span class="section-label">Services</span>
+    <span class="section-label">Selected Works // Click for Details</span>
 
-    <div class="project-item">
-        <div class="project-num">01</div>
-        <div class="project-info">
-            <h3>KASKAZINI HR System</h3>
-            <p>Enterprise workforce solution. Built with Django 5.0. Multi-role auth & Gmail-API encrypted automated payroll.</p>
+    <a href="kaskazini-details.html" class="project-card-link">
+        <div class="project-item">
+            <div class="project-num">01</div>
+            <div class="project-info">
+                <h3>KASKAZINI HR System</h3>
+                <p>An enterprise-grade workforce solution utilizing AI-essentials for predictive analytics and Gmail-API for secure, automated payroll encryption. Built on Django 5.0.</p>
+                <div class="mt-3">
+                    <span class="tech-pill">Python 3.14</span>
+                    <span class="tech-pill">LLM Integration</span>
+                    <span class="tech-pill">Encrypted Auth</span>
+                </div>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
         </div>
-        <div class="badge-container">
-            <span class="badge-custom">Python 3.14</span>
-            <span class="badge-custom">Django 5.0</span>
-        </div>
+    </a>
+
+    <div class="ceo-section">
+        <span class="section-label" style="color:#fff">Venture // His-Hart Apparel</span>
+        <h2 class="fw-900 mb-4">Founder & CEO</h2>
+        <p class="text-secondary mb-4">Leading a lifestyle brand that fuses premium aesthetics with streamlined commerce. From supply chain logic to digital presence.</p>
+        <a href="https://www.instagram.com/his__hart/" target="_blank" class="btn btn-outline-light rounded-0 px-4 py-2">
+            <i class="bi bi-instagram me-2"></i> Follow @his__hart
+        </a>
     </div>
 
-    <div class="project-item">
-        <div class="project-num">02</div>
-        <div class="project-info">
-            <h3>His-Hart Apparel V2</h3>
-            <p>Jumia-inspired commerce architecture. High-performance checkout logic and mobile-first scalability.</p>
-        </div>
-        <div class="badge-container">
-            <span class="badge-custom">Scalability</span>
-            <span class="badge-custom">UI/UX</span>
-        </div>
-    </div>
-
-    <div class="mt-5 pt-4">
+    <div class="mt-5 pt-5">
         <span class="section-label">Inquiries</span>
         <div class="contact-card">
-            <form name="contact" method="POST" data-netlify="true">
+            <form data-netlify="true">
                 <div class="row g-4">
-                    <div class="col-md-6">
-                        <input type="text" name="name" class="form-control" placeholder="YOUR NAME" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" name="email" class="form-control" placeholder="YOUR EMAIL" required>
-                    </div>
-                    <div class="col-12">
-                        <textarea name="message" rows="5" class="form-control" placeholder="PROJECT REQUIREMENTS..." required></textarea>
-                    </div>
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="NAME"></div>
+                    <div class="col-md-6"><input type="email" class="form-control" placeholder="EMAIL"></div>
+                    <div class="col-12"><textarea rows="4" class="form-control" placeholder="BRIEF ME ON YOUR PROJECT..."></textarea></div>
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-submit">Establish Connection</button>
+                        <button type="submit" class="btn btn-submit w-100">Establish Connection</button>
                     </div>
                 </div>
             </form>
@@ -247,11 +215,7 @@
 </main>
 
 <footer class="content-section text-center py-5">
-    <div class="mb-4 d-flex justify-content-center gap-5">
-        <a href="https://github.com/Hopsy-dev-hub" target="_blank" class="text-white fs-3"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/hopeherrins-irmani-11a7b8401" target="_blank" class="text-white fs-3"><i class="bi bi-linkedin"></i></a>
-    </div>
-    <p>&copy; 2026 HOPSY-DEV | ENGINEERED WITH PURPOSE</p>
+    <p class="text-uppercase small" style="letter-spacing: 2px;">&copy; 2026 HOPSY-DEV | ENGINEERED WITH PURPOSE</p>
 </footer>
 
 </body>
