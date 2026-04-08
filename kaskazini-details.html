@@ -3,183 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaskazini HR | Enterprise Architecture</title>
+    <title>Kaskazini HR | Architecture Deep-Dive</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #000;
-            --accent: #00ffff;
-            --card-border: #222;
+            --bg-pure: #000000;
+            --text-pure: #ffffff;
+            --accent-sharp: #00ffff;
+            --border-dim: #1a1a1a;
             --text-dim: #888;
         }
 
         body { 
-            background: var(--bg); 
-            color: #fff; 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden;
+            background-color: var(--bg-pure); 
+            color: var(--text-pure); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
         }
 
-        .premium-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        .container-premium { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
 
-        /* --- HERO --- */
-        .back-terminal { 
-            color: var(--accent); 
-            text-decoration: none; 
-            font-size: 0.8rem; 
-            letter-spacing: 3px; 
-            font-weight: 900; 
+        /* --- NAVIGATION --- */
+        .back-link {
+            color: var(--accent-sharp);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        .back-link:hover { opacity: 0.7; }
+
+        /* --- HERO SECTION --- */
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -4px;
+            margin: 40px 0;
+        }
+
+        .tech-row { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 60px; }
+        .tech-pill {
+            border: 1px solid var(--border-dim);
+            padding: 8px 20px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .hero-title { 
-            font-size: clamp(3.5rem, 10vw, 7rem); 
-            font-weight: 900; 
-            line-height: 0.9; 
-            margin: 40px 0;
-            letter-spacing: -2px;
+        .statement {
+            font-size: 1.5rem;
+            color: #ccc;
+            max-width: 900px;
+            margin-bottom: 100px;
         }
-
-        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 60px; }
-        .tech-badge { 
-            border: 1px solid var(--card-border); 
-            padding: 8px 18px; 
-            font-size: 0.75rem; 
-            color: var(--text-dim); 
-            letter-spacing: 1px;
-        }
+        .statement span { color: #fff; font-weight: 700; border-bottom: 2px solid var(--accent-sharp); }
 
         /* --- GALLERY ARCHITECTURE --- */
         .section-label {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 5px;
-            font-weight: 900;
             display: block;
-            margin-bottom: 20px;
+            color: var(--accent-sharp);
+            font-weight: 900;
+            letter-spacing: 5px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
         }
 
-        .gallery-block { margin-bottom: 120px; }
+        .gallery-item { margin-bottom: 150px; }
         
-        .main-shot { 
-            width: 100%; 
-            border: 1px solid var(--card-border); 
-            margin-bottom: 40px; 
+        .full-width-img {
+            width: 100%;
+            border: 1px solid var(--border-dim);
             transition: 0.5s ease;
         }
 
-        .sub-shot { 
-            width: 100%; 
-            border: 1px solid var(--card-border); 
-            aspect-ratio: 16/9; 
-            object-fit: cover;
-            margin-bottom: 20px;
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
 
-        .shot-caption { 
-            font-size: 0.9rem; 
-            color: var(--text-dim); 
-            margin-bottom: 40px; 
-            border-left: 2px solid var(--accent); 
-            padding-left: 15px;
+        .triple-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
         }
 
-        .description-text {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: #ccc;
-            max-width: 900px;
-            margin-bottom: 80px;
+        .caption-box {
+            margin-top: 30px;
+            border-left: 3px solid var(--accent-sharp);
+            padding-left: 20px;
+            max-width: 700px;
         }
 
-        .description-text span { color: #fff; font-weight: 700; }
+        .caption-box p { color: var(--text-dim); font-size: 1.1rem; }
 
-        /* --- HOVER EFFECTS --- */
-        img:hover { border-color: var(--accent); }
+        img:hover { border-color: var(--accent-sharp); }
 
+        /* --- MOBILE RECTIFICATION --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 3.5rem; }
-            .premium-container { padding: 40px 20px; }
+            .container-premium { padding: 60px 25px; }
+            .split-grid, .triple-grid { grid-template-columns: 1fr; }
+            .hero-title { letter-spacing: -2px; }
         }
     </style>
 </head>
 <body>
 
-<div class="premium-container">
-    <a href="index.html" class="back-terminal">// RETURN TO CORE_HUB</a>
+<main class="container-premium">
+    <a href="index.html" class="back-link">// Return to Terminal</a>
     
-    <h1 class="hero-title">KASKAZINI<br>HR_SYSTEM_V1</h1>
-    
-    <div class="tech-stack">
-        <span class="tech-badge">DJANGO 5.0</span>
-        <span class="tech-badge">PYTHON 3.14</span>
-        <span class="tech-badge">AI ANALYTICS</span>
-        <span class="tech-badge">GMAIL-API ENCRYPTION</span>
+    <h1 class="hero-title">KASKAZINI<br>HR_SYSTEM</h1>
+
+    <div class="tech-row">
+        <span class="tech-pill">Django 5.0</span>
+        <span class="tech-pill">Python 3.14</span>
+        <span class="tech-pill">Encrypted Auth</span>
+        <span class="tech-pill">Gmail-API Integration</span>
     </div>
 
-    <p class="description-text">
-        Kaskazini is a <span>Software Architect’s</span> response to enterprise workforce chaos. 
-        It leverages <span>AI-essentials</span> to automate employee logistics while securing high-sensitivity 
-        payroll data through custom <span>encrypted automation</span>. This isn't just a dashboard; 
-        it’s a scalable ecosystem built for rapid execution.
+    <p class="statement">
+        Kaskazini is a <span>Software Architect’s</span> response to enterprise workforce scaling. It merges <span>automated encrypted payroll logic</span> with an intuitive multi-role interface to ensure data integrity and seamless operation.
     </p>
 
-    <div class="gallery-block">
-        <span class="section-label">01 // THE MASTER HUB</span>
-        <img src="Screenshot 2026-04-07 111628.png" alt="Main Dashboard Hub" class="main-shot">
-        <p class="shot-caption">The Central Command. High-level data visualization using big-button navigation to bifurcate system roles instantly.</p>
-    </div>
-
-    <div class="gallery-block">
-        <span class="section-label">02 // PERSONALIZED WORKFORCE PORTALS</span>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="Screenshot 2026-04-07 111913.png" alt="Employee View 01" class="sub-shot">
-            </div>
-            <div class="col-md-6">
-                <img src="Screenshot 2026-04-07 111950.png" alt="Employee View 02" class="sub-shot">
-            </div>
+    <section class="gallery-item">
+        <span class="section-label">01 // The Master Hub</span>
+        <img src="Screenshot 2026-04-07 111628.png" alt="Kaskazini Home Page" class="full-width-img">
+        <div class="caption-box">
+            <p>The central nervous system. High-level navigation using a clean, brutalist dashboard to bifurcate administrative and employee roles instantly.</p>
         </div>
-        <p class="shot-caption">Premium UI for the end-user. Employee dashboards focusing on attendance tracking and personalized task management.</p>
-    </div>
+    </section>
 
-    <div class="gallery-block">
-        <span class="section-label">03 // REAL-TIME LOGISTICS</span>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="Screenshot 2026-04-07 112155.png" alt="Attendance Logic" class="sub-shot">
-            </div>
-            <div class="col-md-6">
-                <img src="Screenshot 2026-04-07 112252.png" alt="Workforce Management" class="sub-shot">
-            </div>
+    <section class="gallery-item">
+        <span class="section-label">02 // Personalized Portals</span>
+        <div class="split-grid">
+            <img src="Screenshot 2026-04-07 111913.png" alt="Employee View 01" class="full-width-img">
+            <img src="Screenshot 2026-04-07 111950.png" alt="Employee View 02" class="full-width-img">
         </div>
-        <p class="shot-caption">Automated attendance logic. The system tracks workforce movement and integrates seamlessly with the payroll engine.</p>
-    </div>
-
-    <div class="gallery-block">
-        <span class="section-label">04 // THE PAYROLL ENGINE (TECHNICAL LOGIC)</span>
-        <div class="row g-3">
-            <div class="col-md-4">
-                <img src="Screenshot 2026-04-07 112345.png" alt="Payroll Logic 01" class="sub-shot">
-            </div>
-            <div class="col-md-4">
-                <img src="Screenshot 2026-04-07 112547.png" alt="Payroll Logic 02" class="sub-shot">
-            </div>
-            <div class="col-md-4">
-                <img src="Screenshot 2026-04-07 112616.png" alt="Payroll Logic 03" class="sub-shot">
-            </div>
+        <div class="caption-box">
+            <p>Premium user interfaces designed for clarity. These dashboards allow personnel to manage tasks and view individual milestones with zero friction.</p>
         </div>
-        <p class="shot-caption">Deep-end engineering. Automated payroll distribution utilizing secure Gmail-API hooks and multi-role encryption triggers.</p>
-    </div>
+    </section>
 
-</div>
+    <section class="gallery-item">
+        <span class="section-label">03 // Workforce Attendance</span>
+        <div class="split-grid">
+            <img src="Screenshot 2026-04-07 112155.png" alt="Attendance Tracking" class="full-width-img">
+            <img src="Screenshot 2026-04-07 112252.png" alt="Logistics Dashboard" class="full-width-img">
+        </div>
+        <div class="caption-box">
+            <p>Real-time attendance tracking integrated with workforce logistics. Automated data collection feeds directly into the payroll engine.</p>
+        </div>
+    </section>
 
-<footer class="premium-container text-center py-5">
-    <p style="opacity: 0.3; font-size: 0.7rem; letter-spacing: 2px;">ARCHITECTURE BY HOPSY.DEV // 2026</p>
-</footer>
+    <section class="gallery-item">
+        <span class="section-label">04 // Encrypted Payroll Engineering</span>
+        <div class="triple-grid">
+            <img src="Screenshot 2026-04-07 112345.png" alt="Payroll Logic 01" class="full-width-img">
+            <img src="Screenshot 2026-04-07 112547.png" alt="Payroll Logic 02" class="full-width-img">
+            <img src="Screenshot 2026-04-07 112616.png" alt="Payroll Logic 03" class="full-width-img">
+        </div>
+        <div class="caption-box">
+            <p>The heavy-duty core. Secure distribution of automated payslips utilizing custom encryption and Gmail-API hooks for enterprise-grade security.</p>
+        </div>
+    </section>
+
+    <footer class="text-center pt-5">
+        <p style="opacity: 0.3; font-size: 0.7rem; letter-spacing: 2px;">WAGWAN HOPSY // ARCHITECTING PURPOSE // 2026</p>
+    </footer>
+
+</main>
 
 </body>
 </html>
