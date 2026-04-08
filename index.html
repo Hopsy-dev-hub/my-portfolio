@@ -26,18 +26,17 @@
             overflow-x: hidden;
         }
 
-        /* --- THE CINEMATIC HERO (The 'Alex Graham' Pivot) --- */
+        /* --- THE CINEMATIC HERO (Refined) --- */
         .cinematic-hero {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 85vh; /* Reduced from 100vh to let content peek */
             background-color: var(--bg-pure);
             display: flex;
             align-items: flex-end;
             overflow: hidden;
         }
 
-        /* Using your exact directory path: assets/images/Headshot.jpg */
         .hero-background-image {
             position: absolute;
             top: 0;
@@ -55,32 +54,32 @@
         .hero-text-overlay {
             position: relative;
             z-index: 2;
-            padding: 80px 60px;
+            padding: 60px; /* Toned down from 80px */
             width: 100%;
         }
 
         .brutalist-name {
-            font-size: clamp(3rem, 10vw, 12rem);
+            font-size: clamp(3rem, 8vw, 8rem); /* Reduced max size from 12rem */
             font-weight: 900;
             margin: 0;
-            line-height: 0.85;
-            letter-spacing: -4px;
+            line-height: 0.9;
+            letter-spacing: -3px;
             text-transform: uppercase;
         }
 
         .brutalist-title {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            margin-top: 20px;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            margin-top: 15px;
             color: var(--accent-sharp);
             display: block;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-weight: 700;
         }
 
         /* --- CONTENT COMPOSITION --- */
         .content-section {
-            padding: 120px 60px;
+            padding: 80px 60px; /* Reduced from 120px for better flow */
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -90,16 +89,16 @@
             color: var(--accent-sharp);
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             display: block;
             font-weight: 700;
         }
 
         .bold-statement {
-            font-size: clamp(1.5rem, 3.5vw, 3rem);
+            font-size: clamp(1.3rem, 2.5vw, 2.5rem); /* Scaled down slightly */
             font-weight: 700;
-            margin-bottom: 100px;
-            line-height: 1.2;
+            margin-bottom: 70px; /* Tightened from 100px */
+            line-height: 1.3;
         }
 
         .bold-statement span { color: var(--accent-sharp); }
@@ -107,9 +106,9 @@
         /* --- BRUTALIST PROJECT LISTING --- */
         .project-item {
             border-top: 1px solid var(--border-color);
-            padding: 50px 0;
+            padding: 40px 0; /* Tightened from 50px */
             display: grid;
-            grid-template-columns: 100px 1fr 200px;
+            grid-template-columns: 80px 1fr 200px; /* Adjusted columns */
             gap: 30px;
             transition: all 0.4s ease;
         }
@@ -117,15 +116,15 @@
         .project-item:hover { background-color: #0a0a0a; }
 
         .project-num {
-            font-size: 3rem;
+            font-size: 2.5rem; /* Reduced from 3rem */
             font-weight: 900;
             color: #222;
-            line-height: 1;
+            line-height: 1.1;
         }
         .project-item:hover .project-num { color: var(--accent-sharp); }
 
-        .project-info h3 { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; }
-        .project-info p { color: #8b949e; font-size: 1.1rem; max-width: 600px; }
+        .project-info h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
+        .project-info p { color: #8b949e; font-size: 1.05rem; max-width: 600px; }
 
         .badge-container { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
         .badge-custom {
@@ -141,7 +140,7 @@
         .contact-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 60px;
+            padding: 50px; /* Tightened from 60px */
         }
 
         .form-control {
@@ -168,8 +167,9 @@
         footer { opacity: 0.5; font-size: 0.8rem; letter-spacing: 1px; }
 
         @media (max-width: 768px) {
-            .project-item { grid-template-columns: 1fr; gap: 10px; }
-            .content-section { padding: 80px 30px; }
+            .cinematic-hero { height: 75vh; } /* Even smaller on mobile */
+            .project-item { grid-template-columns: 1fr; gap: 15px; padding: 30px 0; }
+            .content-section { padding: 60px 30px; }
             .hero-text-overlay { padding: 40px 30px; }
         }
     </style>
@@ -216,7 +216,7 @@
         </div>
     </div>
 
-    <div class="mt-5 pt-5">
+    <div class="mt-5 pt-4">
         <span class="section-label">03 // INQUIRIES</span>
         <div class="contact-card">
             <form name="contact" method="POST" data-netlify="true">
