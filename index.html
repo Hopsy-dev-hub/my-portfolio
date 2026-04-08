@@ -30,7 +30,7 @@
         .cinematic-hero {
             position: relative;
             width: 100%;
-            height: 80vh; 
+            height: 85vh; 
             display: flex;
             align-items: flex-end;
             overflow: hidden;
@@ -46,7 +46,7 @@
             background-image: url('assets/images/Headshot.jpg');
             background-size: cover;
             background-position: center 20%;
-            filter: grayscale(100%) brightness(60%);
+            filter: grayscale(100%) brightness(50%);
             z-index: 1;
         }
 
@@ -92,7 +92,7 @@
             font-weight: 900;
         }
 
-        /* --- THE CASE STUDY BUTTONS (Interactive) --- */
+        /* --- PROJECT CARDS --- */
         .project-card-link {
             text-decoration: none;
             color: inherit;
@@ -107,6 +107,7 @@
             grid-template-columns: 80px 1fr auto; 
             gap: 30px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .project-item:hover { background: linear-gradient(90deg, #0a0a0a 0%, #000 100%); }
@@ -119,7 +120,7 @@
 
         .bi-arrow-up-right { font-size: 2rem; color: #333; transition: 0.3s; }
 
-        /* --- TECH CAPABILITIES CHIPS --- */
+        /* --- TECH PILLS --- */
         .tech-pill {
             display: inline-block;
             padding: 6px 15px;
@@ -129,24 +130,51 @@
             color: #8b949e;
             margin: 0 8px 10px 0;
             background: #0d1117;
+            font-weight: 500;
         }
 
-        /* --- CEO / APPAREL SECTION --- */
+        /* --- AI & INTUITION SECTION --- */
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .insight-card {
+            background: #0a0a0a;
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent-sharp);
+        }
+
+        .insight-card h4 { font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; margin-bottom: 15px; }
+
+        /* --- CEO SECTION --- */
         .ceo-section {
-            background: #111;
+            background: linear-gradient(135deg, #111 0%, #000 100%);
             padding: 80px 60px;
             margin-top: 50px;
+            border: 1px solid var(--border-color);
             border-left: 4px solid var(--accent-sharp);
         }
 
-        /* --- MOBILE RECTIFICATIONS --- */
+        /* --- MOBILE VIEW --- */
         @media (max-width: 768px) {
-            .cinematic-hero { height: 60vh; align-items: center; }
+            .cinematic-hero { height: 70vh; align-items: center; }
             .hero-text-overlay { padding: 30px; text-align: center; }
             .content-section { padding: 60px 25px; }
             .project-item { grid-template-columns: 1fr; padding: 40px 0; }
-            .project-num { display: none; }
-            .bi-arrow-up-right { display: none; }
+            .project-num, .bi-arrow-up-right { display: none; }
+            .insight-grid { grid-template-columns: 1fr; }
             .ceo-section { padding: 40px 25px; }
         }
     </style>
@@ -159,7 +187,7 @@
         <h1 class="brutalist-name">Hopsy.Dev</h1>
         <div class="mt-3">
             <span class="tech-pill">Software Architect</span>
-            <span class="tech-pill">AI Strategist</span>
+            <span class="tech-pill">Creative Lead</span>
             <span class="tech-pill">CEO: His-Hart</span>
         </div>
     </div>
@@ -167,20 +195,31 @@
 
 <main class="content-section">
     <p class="bold-statement">
-        I engineer <span>robust technical ecosystems</span> by merging advanced Django architecture with <span>AI-driven automation</span>. Beyond the code, I lead as the CEO of His-Hart Apparel, bridging the gap between high-end engineering and commercial scale.
+        I engineer <span>robust technical ecosystems</span> by merging advanced Django architecture with <span>Intuitive AI Intelligence</span>. I don't just write code; I architect solutions where creative vision meets enterprise-grade execution.
     </p>
 
-    <span class="section-label">Selected Works // Click for Details</span>
+    <div class="insight-grid">
+        <div class="insight-card">
+            <h4>AI Intelligence</h4>
+            <p class="text-secondary m-0">Leveraging LLMs and predictive essentials to automate complex workflows and secure data integrity. I bridge the gap between human intuition and machine efficiency.</p>
+        </div>
+        <div class="insight-card">
+            <h4>Creative Intuition</h4>
+            <p class="text-secondary m-0">A high-fidelity design sense that ensures every interface is "premium on top of premium." I lead with a product-first mindset to deliver elite digital experiences.</p>
+        </div>
+    </div>
+
+    <span class="section-label">Selected Works // Engineering Purpose</span>
 
     <a href="kaskazini-details.html" class="project-card-link">
         <div class="project-item">
             <div class="project-num">01</div>
             <div class="project-info">
                 <h3>KASKAZINI HR System</h3>
-                <p>An enterprise-grade workforce solution utilizing AI-essentials for predictive analytics and Gmail-API for secure, automated payroll encryption. Built on Django 5.0.</p>
+                <p>Enterprise workforce solution. Automated encrypted payroll using Gmail-API and predictive AI logic for seamless management.</p>
                 <div class="mt-3">
                     <span class="tech-pill">Python 3.14</span>
-                    <span class="tech-pill">LLM Integration</span>
+                    <span class="tech-pill">Django 5.0</span>
                     <span class="tech-pill">Encrypted Auth</span>
                 </div>
             </div>
@@ -188,25 +227,41 @@
         </div>
     </a>
 
+    <a href="hart-cart.html" class="project-card-link">
+        <div class="project-item">
+            <div class="project-num">02</div>
+            <div class="project-info">
+                <h3>Hart-Cart E-Commerce</h3>
+                <p>A high-end commerce engine built for the next generation of retail. Bespoke checkout logic meets a clean, retro-vintage UI.</p>
+                <div class="mt-3">
+                    <span class="tech-pill">Scalable Architecture</span>
+                    <span class="tech-pill">Custom UI/UX</span>
+                    <span class="tech-pill">FinTech Core</span>
+                </div>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+        </div>
+    </a>
+
     <div class="ceo-section">
-        <span class="section-label" style="color:#fff">Venture // His-Hart Apparel</span>
-        <h2 class="fw-900 mb-4">Founder & CEO</h2>
-        <p class="text-secondary mb-4">Leading a lifestyle brand that fuses premium aesthetics with streamlined commerce. From supply chain logic to digital presence.</p>
+        <span class="section-label" style="color:#fff">Executive Venture</span>
+        <h2 class="fw-900 mb-4">Founder & CEO // His-Hart Apparel</h2>
+        <p class="text-secondary mb-4">Translating high-concept aesthetics into a tangible lifestyle brand. Managing the intersection of supply chain logistics and digital dominance.</p>
         <a href="https://www.instagram.com/his__hart/" target="_blank" class="btn btn-outline-light rounded-0 px-4 py-2">
             <i class="bi bi-instagram me-2"></i> Follow @his__hart
         </a>
     </div>
 
     <div class="mt-5 pt-5">
-        <span class="section-label">Inquiries</span>
-        <div class="contact-card">
+        <span class="section-label">Establish Connection</span>
+        <div class="contact-card p-4" style="background: #0a0a0a; border: 1px solid var(--border-color);">
             <form data-netlify="true">
                 <div class="row g-4">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="NAME"></div>
-                    <div class="col-md-6"><input type="email" class="form-control" placeholder="EMAIL"></div>
-                    <div class="col-12"><textarea rows="4" class="form-control" placeholder="BRIEF ME ON YOUR PROJECT..."></textarea></div>
+                    <div class="col-md-6"><input type="text" class="form-control bg-black text-white border-secondary rounded-0" placeholder="NAME"></div>
+                    <div class="col-md-6"><input type="email" class="form-control bg-black text-white border-secondary rounded-0" placeholder="EMAIL"></div>
+                    <div class="col-12"><textarea rows="4" class="form-control bg-black text-white border-secondary rounded-0" placeholder="DESCRIBE YOUR VISION..."></textarea></div>
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-submit w-100">Establish Connection</button>
+                        <button type="submit" class="btn btn-outline-info w-100 rounded-0 py-3 fw-bold">INITIATE INQUIRY</button>
                     </div>
                 </div>
             </form>
@@ -215,7 +270,7 @@
 </main>
 
 <footer class="content-section text-center py-5">
-    <p class="text-uppercase small" style="letter-spacing: 2px;">&copy; 2026 HOPSY-DEV | ENGINEERED WITH PURPOSE</p>
+    <p class="text-uppercase small" style="letter-spacing: 2px; opacity: 0.5;">&copy; 2026 HOPSY-DEV | ALL RIGHTS RESERVED</p>
 </footer>
 
 </body>
